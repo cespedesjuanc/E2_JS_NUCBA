@@ -18,7 +18,7 @@ Manejemos esa respuesta, pensando en que un usuario promedio va a leer eso.
 
 Por ejemplo: "La pizza X, tiene un valor de $XXXX”. 💸
 */
-
+// Crear el array de objetos "Pizzas". 🍕
 let Pizzas = [
   {
     id: 1,
@@ -64,6 +64,7 @@ let Pizzas = [
 ];
 
 console.log(Pizzas);
+
 // a) Las pizzas que tengan un id impar.
 for (let i = 0; i < Pizzas.length; i++) {
   if (Pizzas[i].id % 2 != 0) {
