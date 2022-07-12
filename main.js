@@ -105,8 +105,42 @@ Vamos a utilizar el mismo array de objetos "Pizzas🍕" del desafío general ant
 👉 Crear un archivo HTML que contenga un h2, un h4, un input number y un botón. 
 
 👉 El desafío será, al tocar el botón, capturar el valor ingresado en el input.
-👉 Renderizar en el h2 el nombre y en el h4 el precio de la pizza cuyo id coincida con el numero ingresado en el input. 
+👉 Renderizar en el h2 el nombre y en el h4 el precio de la pizza cuyo id coincida con 
+el numero ingresado en el input. 
 
-🚨 Si no coincide con ningún id, renderizar un mensaje de error. 
+🚨 Si no coincide con ningún id, renderizar un mensaje de error. --- 2.12
 
 */
+const container = document.querySelector(".container");
+const btn_buscar_id = document.getElementById("btn_buscar");
+const input_id = document.getElementById("input_id");
+const nombre_pizza = document.getElementById("nombre_pizza");
+const precio_pizza = document.getElementById("precio_pizza");
+
+btn_buscar_id.addEventListener("click", btn_buscar);
+
+function btn_buscar() {
+  const ver_id = input_id.value;
+  nombre_pizza.innerHTML = "";
+  precio_pizza.innerHTML = "";
+  for (let i = 0; i < Pizzas.length; i++) {
+    if (ver_id == Pizzas[i].id) {
+      nombre_pizza.innerHTML = `Usted eligio la Pizza de ${Pizzas[i].nombre}`;
+      precio_pizza.innerHTML = `Valor $ ${Pizzas[i].precio}`;
+    } /*
+    else {
+      showError("No hay ninguna pizza listada con ese ID!");
+      return;
+    }*/
+  }
+}
+
+function showError(error) {
+  const msgError = document.createElement("p");
+  msgError.textContent = error;
+  //msgError.classList.add("error");
+  container.appendChild(msgError);
+  setTimeout(() => {
+    msgError.remove();
+  }, 2000);
+}
