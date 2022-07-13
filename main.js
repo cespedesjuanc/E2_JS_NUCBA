@@ -120,25 +120,29 @@ const precio_pizza = document.getElementById("precio_pizza");
 btn_buscar_id.addEventListener("click", btn_buscar);
 
 function btn_buscar() {
-  const ver_id = input_id.value;
-  nombre_pizza.innerHTML = "";
-  precio_pizza.innerHTML = "";
+  let ver_id = input_id.value;
+
+  if (ver_id === "") {
+    nombre_pizza.innerHTML = "";
+    precio_pizza.innerHTML = "";
+    showError("NO INGRESO NINGUN NUMERO DE ID!");
+  } else {
+    nombre_pizza.innerHTML = `No hay ninguna pizza listada con el ID ${ver_id}.`;
+    precio_pizza.innerHTML = "";
+  }
+
   for (let i = 0; i < Pizzas.length; i++) {
     if (ver_id == Pizzas[i].id) {
       nombre_pizza.innerHTML = `Usted eligio la Pizza de ${Pizzas[i].nombre}`;
       precio_pizza.innerHTML = `Valor $ ${Pizzas[i].precio}`;
-    } /*
-    else {
-      showError("No hay ninguna pizza listada con ese ID!");
-      return;
-    }*/
+    }
   }
 }
 
 function showError(error) {
   const msgError = document.createElement("p");
   msgError.textContent = error;
-  //msgError.classList.add("error");
+  msgError.classList.add("error");
   container.appendChild(msgError);
   setTimeout(() => {
     msgError.remove();

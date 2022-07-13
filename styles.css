@@ -22,10 +22,24 @@ h4 {
 }
 
 #btn_buscar {
+  font-size: 20px;
   background: chartreuse;
-  width: 7rem;
-  height: 1.5rem;
+  width: 10rem;
+  padding: 3px;
   border-radius: 15px;
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -ms-border-radius: 15px;
+  -o-border-radius: 15px;
+}
+
+.error {
+  background: red;
+  width: auto;
+  padding: 1rem;
+  color: white;
+  border-radius: 15px;
+
   -webkit-border-radius: 15px;
   -moz-border-radius: 15px;
   -ms-border-radius: 15px;
